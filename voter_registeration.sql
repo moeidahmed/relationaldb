@@ -1,0 +1,322 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 20, 2022 at 06:25 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `voter_registeration`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+DROP TABLE IF EXISTS `cities`;
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_id` int(11) NOT NULL,
+  `city_name` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=251 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `pro_id`, `city_name`) VALUES
+(1, 1, 'Lahore'),
+(2, 1, 'Faisalabad'),
+(3, 1, 'Rawalpindi'),
+(4, 1, 'Gujranwala'),
+(5, 1, 'Multan'),
+(6, 1, 'Bahawalpur'),
+(7, 1, 'Sargodha'),
+(8, 1, 'Sialkot'),
+(9, 1, 'Sheikhupura'),
+(10, 1, 'Rahim Yar Khan'),
+(11, 1, 'Jhang'),
+(12, 1, 'Dera Ghazi Khan'),
+(13, 1, 'Gujrat'),
+(14, 1, 'Sahiwal'),
+(15, 1, 'Wah Cantonment'),
+(16, 1, 'Kasur'),
+(17, 1, 'Okara'),
+(18, 1, 'Chiniot'),
+(19, 1, 'Kamoke'),
+(20, 1, 'Hafizabad'),
+(21, 1, 'Sadiqabad'),
+(22, 1, 'Burewala'),
+(23, 1, 'Khanewal'),
+(24, 1, 'Muzaffargarh'),
+(25, 1, 'Mandi Bahauddin'),
+(26, 1, 'Jhelum'),
+(27, 1, 'Khanpur'),
+(28, 1, 'Pakpattan'),
+(29, 1, 'Daska'),
+(30, 1, 'Gojra'),
+(31, 1, 'Muridke'),
+(32, 1, 'Bahawalnagar'),
+(33, 1, 'Samundri'),
+(34, 1, 'Jaranwala'),
+(35, 1, 'Chishtian'),
+(36, 1, 'Attock'),
+(37, 1, 'Vehari'),
+(38, 1, 'Kot Abdul Malik'),
+(39, 1, 'Ferozewala'),
+(40, 1, 'Chakwal'),
+(41, 1, 'Gujranwala Cantonment'),
+(42, 1, 'Kamalia'),
+(43, 1, 'Ahmedpur East'),
+(44, 1, 'Kot Addu'),
+(45, 1, 'Wazirabad'),
+(46, 1, 'Layyah'),
+(47, 1, 'Taxila'),
+(48, 1, 'Khushab'),
+(49, 1, 'Mianwali'),
+(50, 1, 'Lodhran'),
+(51, 1, 'Hasilpur'),
+(52, 1, 'Bhakkar'),
+(53, 1, 'Arif Wala'),
+(54, 1, 'Sambrial'),
+(55, 1, 'Jatoi'),
+(56, 1, 'Haroonabad'),
+(57, 1, 'Narowal'),
+(58, 1, 'Bhalwal'),
+(59, 2, 'Karachi'),
+(60, 2, 'Hyderabad'),
+(61, 2, 'Sukkur'),
+(62, 2, 'Larkana'),
+(63, 2, 'Nawabshah'),
+(64, 2, 'Kotri'),
+(65, 2, 'Mirpur Khas'),
+(66, 2, 'Shikarpur'),
+(67, 2, 'Jacobabad'),
+(68, 2, 'Khairpur'),
+(69, 2, 'Dadu'),
+(70, 2, 'Tando Allahyar'),
+(71, 2, 'Tando Adam Khan'),
+(72, 2, 'Umerkot'),
+(73, 2, 'Shahdadkot'),
+(74, 2, 'Badin'),
+(75, 2, 'Ghotki'),
+(76, 2, 'Daharki'),
+(77, 2, 'Tando Muhammad Khan'),
+(78, 2, 'Kamber Ali Khan'),
+(79, 2, 'Mirpur Mathelo'),
+(80, 2, 'Kandhkot'),
+(81, 2, 'Shahdadpur'),
+(82, 2, 'Moro'),
+(83, 2, 'Tando Jam'),
+(84, 2, 'Pano Akil'),
+(85, 2, 'Sanghar'),
+(86, 2, 'Thul'),
+(87, 2, 'Rohri'),
+(88, 2, 'Ratodero'),
+(89, 2, 'Sehwan Sharif'),
+(90, 2, 'Hala'),
+(91, 2, 'Sakrand'),
+(92, 2, 'Matli'),
+(93, 2, 'Kashmore'),
+(94, 2, 'Mehar'),
+(95, 2, 'Thatta'),
+(96, 2, 'Mehrabpur'),
+(97, 2, 'Gambat	'),
+(98, 2, 'Khipro'),
+(99, 3, 'Quetta'),
+(100, 3, 'Turbat'),
+(101, 3, 'Khuzdar'),
+(102, 3, 'Hub'),
+(103, 3, 'Chaman'),
+(104, 3, 'Dera Murad Jamali'),
+(105, 3, 'Gwadar'),
+(106, 3, 'Dera Allah Yar'),
+(107, 3, 'Usta Mohammad'),
+(108, 3, 'Sui Town'),
+(109, 3, 'Sibi'),
+(110, 3, 'Loralai'),
+(111, 3, 'Tump'),
+(112, 3, 'Nushki'),
+(113, 3, 'Zhob'),
+(114, 3, 'Kharan'),
+(115, 3, 'Chitkan'),
+(116, 3, 'Khanozai'),
+(117, 3, 'Buleda'),
+(118, 3, 'Saranan'),
+(119, 3, 'Zehri'),
+(120, 3, 'Qalat'),
+(121, 3, 'Tasp'),
+(122, 3, 'Surab'),
+(123, 3, 'Pishin'),
+(124, 3, 'Mastung'),
+(125, 3, '	Qilla Saifullah'),
+(126, 3, 'Pasni'),
+(127, 3, 'Nal'),
+(128, 3, 'Winder'),
+(129, 3, 'Uthal'),
+(130, 3, 'Huramzai'),
+(131, 3, 'Muslim Bagh	'),
+(132, 3, 'Dera Bugti'),
+(133, 3, 'Qilla Abdullah	'),
+(134, 3, 'Bela'),
+(135, 3, 'Wadh	'),
+(136, 3, 'Washuk'),
+(137, 3, 'Awaran'),
+(138, 3, 'Machh'),
+(139, 3, 'Jiwani'),
+(140, 3, 'Ormara'),
+(141, 3, 'Kohlu'),
+(142, 3, 'Bhag'),
+(143, 3, 'Dalbandin'),
+(144, 3, 'Dhadar	'),
+(145, 3, 'Musakhel'),
+(146, 3, 'Harnai'),
+(147, 3, 'Dureji	'),
+(148, 3, 'Sohbatpur'),
+(149, 3, 'Gajjar Mashkay'),
+(150, 3, 'Barkhan'),
+(151, 3, 'Shahrug'),
+(152, 3, 'Duki'),
+(153, 4, 'Peshawar'),
+(154, 4, 'Mardan'),
+(155, 4, 'Mingora'),
+(156, 4, 'Kohat'),
+(157, 4, 'Dera Ismail Khan'),
+(158, 4, 'Abbottabad'),
+(159, 4, 'Mansehra'),
+(160, 4, 'Swabi'),
+(161, 4, 'Nowshera'),
+(162, 4, 'Kabal'),
+(163, 4, 'Charsadda	'),
+(164, 4, 'Barikot'),
+(165, 4, 'Shabqadar	'),
+(166, 4, 'Haripur'),
+(167, 4, 'Takht-i-Bahi'),
+(168, 4, 'Paharpur'),
+(169, 4, 'Batkhela'),
+(170, 4, 'Jamrud'),
+(171, 4, 'Bahrain'),
+(172, 4, 'Lakki Marwat'),
+(173, 4, 'Pabbi'),
+(174, 4, 'Topi'),
+(175, 4, 'Jehangira'),
+(176, 4, 'Karak'),
+(177, 4, 'Bannu'),
+(178, 4, 'Chitral'),
+(179, 4, 'Hangu'),
+(180, 4, 'Havelian'),
+(181, 4, 'Khwazakhela'),
+(182, 4, 'Khalabat'),
+(183, 4, 'Tank'),
+(184, 4, 'Dir'),
+(185, 4, 'Matta'),
+(186, 4, 'Tordher'),
+(187, 4, 'Timargara'),
+(188, 4, 'Paroa'),
+(189, 4, 'Amangarh'),
+(190, 4, 'Risalpur'),
+(191, 4, 'Nawan Shehr'),
+(192, 4, 'Sadda'),
+(193, 4, 'Landi Kotal'),
+(194, 4, 'Tangi'),
+(195, 4, 'Akora Khattak'),
+(196, 4, 'Tall'),
+(197, 4, 'Zaida'),
+(198, 4, 'Utmanzai'),
+(199, 5, 'Aliabad'),
+(200, 5, 'Askole'),
+(201, 5, 'Astore'),
+(202, 5, 'Bunji'),
+(203, 5, 'Chilas'),
+(204, 5, 'Chillinji'),
+(205, 5, 'Cholt'),
+(206, 5, 'Dambudas'),
+(207, 5, 'Danyor'),
+(208, 5, 'Darel'),
+(209, 5, 'Dansam'),
+(210, 5, 'Eidghah'),
+(211, 5, 'Gahkuch'),
+(212, 5, 'Gilgit'),
+(213, 5, 'Gojal'),
+(214, 5, 'Gulmit'),
+(215, 5, 'Gultari'),
+(216, 5, 'Haldi'),
+(217, 5, 'Hopar'),
+(218, 5, 'Hussainabad'),
+(219, 5, 'Ishkoman'),
+(220, 5, 'Juglot'),
+(221, 5, 'Jalalabad'),
+(222, 5, 'Jutial'),
+(223, 5, 'Karimabad'),
+(224, 5, 'Khaplu'),
+(225, 5, 'Kharfaq'),
+(226, 5, 'Kharko'),
+(227, 5, 'Kharmang'),
+(228, 5, 'Mayoon'),
+(229, 5, 'Minimarg'),
+(230, 5, 'Misgar'),
+(231, 5, 'Naltar'),
+(232, 5, 'Nasirabad'),
+(233, 5, 'Nagar'),
+(234, 5, 'Oshikhandass'),
+(235, 5, 'Passu'),
+(236, 5, 'Phander'),
+(237, 5, 'Punial'),
+(238, 5, 'Qasimabad'),
+(239, 5, 'Shigar'),
+(240, 5, 'Shimshal'),
+(241, 5, 'Skardu'),
+(242, 5, 'Sultanabad'),
+(243, 5, 'Sust'),
+(244, 5, 'Tangir'),
+(245, 5, 'Thalichi'),
+(246, 5, 'Thole'),
+(247, 5, 'Thowar'),
+(248, 5, 'Tolti'),
+(249, 5, 'Yasin'),
+(250, 6, 'Islamabad');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `provinces`
+--
+
+DROP TABLE IF EXISTS `provinces`;
+CREATE TABLE IF NOT EXISTS `provinces` (
+  `pro_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_name` text NOT NULL,
+  PRIMARY KEY (`pro_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `provinces`
+--
+
+INSERT INTO `provinces` (`pro_id`, `pro_name`) VALUES
+(1, 'Punjab'),
+(2, 'Sindh'),
+(3, 'Balochistan'),
+(4, 'Kpk'),
+(5, 'Gilgit'),
+(6, 'Islamabad');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

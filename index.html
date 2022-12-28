@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="m-5 p-5">
+      <div>
+        <label
+          for="province"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Select Province</label
+        >
+        <select
+          onchange="val()"
+          id="province"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option selected>Choose a Province</option>
+          <option value="1">Punjab</option>
+          <option value="2">Sindh</option>
+          <option value="3">Balochistan</option>
+          <option value="4">KPK</option>
+          <option value="5">Gilgit</option>
+          <option value="6">Islamabad</option>
+        </select>
+      </div>
+      <div>
+        <label
+          for="city"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Select City</label
+        >
+        <select
+          id="city"
+          onchange="dis()"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option selected>Please Select Province First</option>
+        </select>
+      </div>
+      <div>
+        <label
+          for="district"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Select District</label
+        >
+        <select
+          id="district"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option selected>Please Select City First</option>
+        </select>
+      </div>
+    </div>
+    <script>
+      //for cities
+      async function val() {
+        let pro = document.getElementById("province").value;
+        document.getElementById("city").innerHTML = " ";
+        const res = await fetch(`http://localhost:4040/province/data/${pro}`);
+        const data = await res.json();
+        for (let i = 0; i < data.length; i++) {
+          const element = data[i];
+          // console.log(element);
+          let cname = element.city_name;
+          document.getElementById(
+            "city"
+          ).innerHTML += `<option value="${cname}">${cname}</option>`;
+        }
+      }
+      // for districts
+      async function dis() {
+        let dis = document.getElementById("city").value;
+        document.getElementById("district").innerHTML = " ";
+        const res = await fetch(`http://localhost:4040/dis/data/${dis}`);
+        console.log(res);
+        const data = await res.json();
+        for (let i = 0; i < data.length; i++) {
+          const element = data[i];
+          console.log(element);
+          let dname = element.districts_name;
+          document.getElementById(
+            "district"
+          ).innerHTML += `<option value="${dname}">${dname}</option>`;
+        }
+      }
+    </script>
+  </body>
+</html>
